@@ -1,0 +1,67 @@
+{% load static %}
+{% with default_image='/static/images/default-city.jpg' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Weather Application</title>
+</head>
+<body>
+    <div class="app-container" style="background-image: linear-gradient(rgba(72, 73, 73, 0.6), rgba(70, 72, 72, 0.6), rgba(80, 81, 81, 0.6)), 
+    url('{{ city_image|default:default_image }}');">
+    {% endwith %}
+        <form method="POST">
+            {% csrf_token %}
+        <div class="search-box">
+            <input type="text" name="city" id="city-input" placeholder="Enter City Name" spellcheck="false">
+            <button id="search"><img src="{% static 'images/search.png' %}" alt=""></button>
+        </div>
+        <div class="error">
+            <p>Invalid City Name</p>
+        </div>
+        </form>
+        <div class="weather">
+            <img src="{% static 'images/' %}{{ icon }}" alt="Weather Icon" width="100px">
+            <p id="condition">{{weather}}</p>
+            <h1 id="temp">{{temp}}</h1>
+            <h2 id="city">{{city}}</h2>
+            <h3 id="state">{{state}}</h3>
+
+            <div class="details">
+                <div class="col">
+                    <img src="{% static 'images/humidity.png' %}" alt="">
+                    <div>
+                        <p class="humidity">{{humidity}}</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="{% static 'images/wind.png' %}" alt="">
+                    <div>
+                        <p class="wind">{{wind}}</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="details">
+                <div class="col">
+                    <img src="{% static 'images/latitude.png' %}" alt="">
+                    <div>
+                        <p class="humidity">{{longitude}}</p>
+                        <p>longitude</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="{% static 'images/latitude.png' %}" alt="">
+                    <div>
+                        <p class="wind">{{latitude}}</p>
+                        <p>latitude</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
