@@ -26,7 +26,7 @@ Weather Application is a Django web application designed for to know the city's 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/KiranKumarMalik/Weather-app-using-Django-and-OpenweatherAPI.git
+   git clone https://github.com/Dhanyalingam/Weather-app-using-Django-and-OpenweatherAPI.git
    cd weather
 
 
